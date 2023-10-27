@@ -1,4 +1,4 @@
-import { Ticket } from "../models/ticket.js";
+import { Ticket } from "../models/Ticket.js";
 
 export function getAllTickets() {
   return Ticket.find().populate("student");
