@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import { dataBaseConnection } from "./db.js";
 import { getUserByEmail } from "./controllers/user.js";
 import { User, generateToken } from "./models/user.js";
-import { Ticket } from "./models/ticket.js";
+import { Ticket } from "./models/Ticket.js";
 import { ticketRouter } from "./routes/ticket.js";
 import { isAuthenticated } from "./controllers/auth.js";
 import { adminRouter } from "./routes/admin.js";
