@@ -17,8 +17,8 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const generateToken = (id, role) => {
-  return jwt.sign({ id, role }, process.env.SECRET_KEY, { expiresIn: "1d" });
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.SECRET_KEY, { expiresIn: "1d" });
 };
 
 const User = new mongoose.model("user", userSchema);
