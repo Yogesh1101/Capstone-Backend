@@ -1,5 +1,9 @@
 import { Ticket } from "../models/Ticket.js";
 
+export function getUserDetails(req) {
+  return req.user;
+}
+
 export function getAllTickets() {
   return Ticket.find().populate("student");
 }

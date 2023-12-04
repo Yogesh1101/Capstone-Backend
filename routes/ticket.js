@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  getUserDetails,
   deteleTicket,
   getUserTickets,
   postNewTickets,
@@ -7,6 +8,17 @@ import {
 } from "../controllers/ticket.js";
 
 const router = express.Router();
+
+// get user details
+router.get("/userDetails", async (req, res) => {
+  try {
+    const user = await getUserDetails(req);
+    res.status(200).json({ data: user });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error." });
+  }
+});
 
 // get all user tickets
 router.get("/all", async (req, res) => {
