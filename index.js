@@ -40,6 +40,7 @@ app.post("/signup", async (req, res) => {
       name: req.body.name,
       email: req.body.email,
       password: hashedPassword,
+      role: "student",
     }).save();
     const token = generateToken(user._id);
     res.status(201).json({ message: "Successfully Created.", token });
