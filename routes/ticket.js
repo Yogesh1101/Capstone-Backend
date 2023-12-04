@@ -6,13 +6,14 @@ import {
   postNewTickets,
   updateTickets,
 } from "../controllers/ticket.js";
+import { getUserById } from "../controllers/user.js";
 
 const router = express.Router();
 
 // get user details
 router.get("/userDetails", async (req, res) => {
   try {
-    const user = await getUserDetails(req);
+    const user = await getUserById(req);
     res.status(200).json({ data: user });
   } catch (error) {
     console.log(error);
