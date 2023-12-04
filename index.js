@@ -34,14 +34,12 @@ app.post("/signup", async (req, res) => {
     // generate hashed password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
-    const letrole = "student";
 
     // storing the email and password in user database
     user = await new User({
       name: req.body.name,
       email: req.body.email,
       password: hashedPassword,
-      role: letrole,
     }).save();
     const token = generateToken(user._id);
     res.status(201).json({ message: "Successfully Created.", token });
@@ -66,7 +64,7 @@ app.post("/login", async (req, res) => {
     if (!validatePassword) {
       return res.status(404).json({ error: "Invalid Credentials." });
     }
-    const token = generateToken(user._id, user.role);
+    const token = generateToken(user._id);
     res.cookie("token", token);
     res
       .status(200)

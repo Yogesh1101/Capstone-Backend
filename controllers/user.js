@@ -7,5 +7,5 @@ export function getUserByEmail(request) {
 }
 
 export function getUserById(userID) {
-  return User.findById(userID).select("_id name email");
+  return User.findById(userID).select("_id name email role");
 }
